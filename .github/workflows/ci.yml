@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}  
           key: ${{ secrets.SERVER_SSH_KEY }}     
           script: |
-            cd /ETS/LOG430/LAB0
+            cd ~/ETS/LOG430/LAB0
             ./deploy.sh
       
 
