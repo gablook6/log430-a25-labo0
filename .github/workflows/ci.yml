@@ -21,8 +21,14 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Tests
-        working-directory: src
-        run: | 
-          python -m pytest 
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}     
+          username: ${{ secrets.SERVER_USER }}  
+          key: ${{ secrets.SERVER_SSH_KEY }}     
+          script: |
+            cd /ETS/LOG430/LAB0
+            ./deploy.sh
+      
 
